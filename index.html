@@ -290,13 +290,19 @@
         </footer>
     </div>
 <script>
-    function openBranchMap(selectElement) {
-        const mapUrl = selectElement.value;
-        if (mapUrl) {
-            window.open(mapUrl, "_blank", "noopener,noreferrer");
-            selectElement.selectedIndex = 0;
-        }
+  function openBranchMap(selectElement) {
+    const mapUrl = selectElement.value;
+    if (mapUrl) {
+      const link = document.createElement("a");
+      link.href = mapUrl;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      selectElement.selectedIndex = 0;
     }
+  }
 </script>
 </body>
 </html>
