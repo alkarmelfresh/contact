@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الكرمل فريش</title>
+    <!-- أيقونة التبويب (Favicon) -->
+<link rel="icon" type="image/jpeg" href="logo.jpg">
+    
+    <!-- خط تجوال العربي من جوجل -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- مكتبة أيقونات FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        :root {
+            /* تقدر تغير الألوان من هنا بسهولة */
+            --bg-color: #f4f6f9;
+            --card-bg: #ffffff;
+            --primary-color: #1e293b;
+            --text-muted: #64748b;
+            --accent-color: #2563eb;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: var(--card-bg);
+            width: 100%;
+            max-width: 440px;
+            border-radius: 24px;
+            padding: 32px 24px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        /* منطقة الشعار واسم المحل */
+        .logo-circle {
+            width: 90px;
+            height: 90px;
+            background-color: var(--primary-color);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            margin: 0 auto 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        /* إذا حبيت تحط صورة شعار بدل الأيقونة، فعّل هذا الكود */
+        .logo-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .bio {
+            color: var(--text-muted);
+            font-size: 15px;
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+
+        /* عناوين الأقسام */
+        .section-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-align: right;
+            margin: 20px 0 10px;
+            padding-right: 4px;
+        }
+
+        /* الأزرار */
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 14px 18px;
+            margin-bottom: 12px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid #e2e8f0;
+            background-color: #fff;
+            color: var(--primary-color);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
+        }
+
+        .btn-content {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn i.main-icon {
+            font-size: 22px;
+            width: 28px;
+            text-align: center;
+        }
+
+        .arrow-icon {
+            font-size: 14px;
+            color: #94a3b8;
+        }
+
+        /* ألوان مميزة لأزرار التواصل */
+        .btn-facebook .main-icon { color: #1877F2; }
+        .btn-instagram .main-icon { color: #E4405F; }
+        .btn-whatsapp .main-icon { color: #25D366; }
+        .btn-phone .main-icon { color: #0f172a; }
+        .btn-location .main-icon { color: #ef4444; }
+
+        .branch-details {
+            text-align: right;
+        }
+
+        .branch-name {
+            display: block;
+            font-size: 16px;
+        }
+
+        .branch-sub {
+            display: block;
+            font-size: 12px;
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+
+        footer {
+            margin-top: 24px;
+            font-size: 12px;
+            color: #94a3b8;
+        }
+        /* تنسيق القائمة المنسدلة للأفرع */
+.select-wrapper {
+    position: relative;
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.select-wrapper select {
+    width: 100%;
+    padding: 15px 46px 15px 38px;
+    border-radius: 14px;
+    border: 1px solid #e2e8f0;
+    background-color: #ffffff;
+    color: var(--primary-color, #1e293b);
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.select-wrapper select:focus {
+    outline: none;
+    border-color: var(--accent-color, #2563eb);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.select-wrapper .location-icon {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ef4444;
+    font-size: 20px;
+    pointer-events: none;
+}
+
+.select-wrapper .select-arrow {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+    font-size: 14px;
+    pointer-events: none;
+}
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- الشعار: تقدر تحط صورة شعارك بدل الأيقونة بحذف سطر i وتفعيل سطر img -->
+        <div class="logo-circle">
+            <img src="logo.jpg" alt="شعار المحل">
+        </div>
+
+        <!-- اسم المحل والوصف -->
+        <h1>الكرمل فريش</h1>
+        <p class="bio">أهلاً بكم! يسعدنا خدمتكم وتواصلكم معنا عبر حساباتنا أو زيارتنا في أفرعنا.</p>
+
+        <!-- قسم التواصل المباشر -->
+        <div class="section-title">تواصل معنا</div>
+
+        <!-- زر الاتصال المباشر -->
+        <a href="tel:+962799777690" class="btn btn-phone">
+            <div class="btn-content">
+                <i class="fa-solid fa-phone main-icon"></i>
+                <span>اتصل بنا: 0799777690</span>
+            </div>
+            <i class="fa-solid fa-chevron-left arrow-icon"></i>
+        </a>
+
+        <!-- زر واتساب (ضع الرقم بصيغة دولية بدون أصفار أو +) -->
+        <a href="https://wa.me/962799777690" target="_blank" class="btn btn-whatsapp">
+            <div class="btn-content">
+                <i class="fa-brands fa-whatsapp main-icon"></i>
+                <span>تواصل معنا على واتساب</span>
+            </div>
+            <i class="fa-solid fa-chevron-left arrow-icon"></i>
+        </a>
+
+        <!-- قسم السوشيال ميديا -->
+        <div class="section-title">تابعنا على</div>
+
+        <!-- رابط فيسبوك -->
+        <a href="https://www.facebook.com/share/1FN6ye586o/?mibextid=wwXIfr" target="_blank" class="btn btn-facebook">
+            <div class="btn-content">
+                <i class="fa-brands fa-facebook main-icon"></i>
+                <span>صفحتنا على فيسبوك</span>
+            </div>
+            <i class="fa-solid fa-chevron-left arrow-icon"></i>
+        </a>
+
+        <!-- رابط انستجرام -->
+        <a href="https://www.instagram.com/alkarmelfresh?jplx=MW1mY3NoNmJxeW02Ng==" target="_blank" class="btn btn-instagram">
+            <div class="btn-content">
+                <i class="fa-brands fa-instagram main-icon"></i>
+                <span>حسابنا على إنستجرام</span>
+            </div>
+            <i class="fa-solid fa-chevron-left arrow-icon"></i>
+        </a>
+
+        <!-- قسم الأفرع بنظام القائمة المنسدلة (6 أفرع) -->
+<div class="section-title">مواقع أفرعنا (اختر الفرع)</div>
+
+<div class="branch-selector">
+    <div class="select-wrapper">
+        <i class="fa-solid fa-location-dot location-icon"></i>
+        <select id="branchSelect" onchange="openBranchMap(this)">
+            <option value="" disabled selected>-- اضغط لاختيار الفرع --</option>
+            <!-- ضع رابط خرائط جوجل لكل فرع مكان النص داخل value -->
+            <option value="https://maps.app.goo.gl/qFfrp5AytJAPuDGK9?g_st=ic">فرع دابوق - إشارة المواصفات والمقاييس</option>
+            <option value="https://maps.app.goo.gl/MdbHJj7Wyr4UMDGm9?g_st=ic">فرع خلدا - بجانب بن العميد</option>
+            <option value="https://maps.app.goo.gl/mzGXtMaTDftzqE2L8?g_st=ic">فرع شارع الحرية - مقابل دائرة الأراضي</option>
+            <option value="https://maps.app.goo.gl/nuPjKsKYQEhAUVdR8?g_st=ic">فرع الصويفية - بجانب صويفية فيليج</option>
+            <option value="https://maps.app.goo.gl/umXELHtPKqtH4dx16?g_st=ic">فرع شارع القدس - مقابل أرامكس</option>
+            <option value="https://maps.app.goo.gl/C7kcKy5LjDDaa5gk6?g_st=ic">فرع ضاحية الياسمين - مقابل حديقة الشباب</option>
+        </select>
+        <i class="fa-solid fa-chevron-down select-arrow"></i>
+    </div>
+</div>
+        <footer>
+            جميع الحقوق محفوظة © 2026
+        </footer>
+    </div>
+<script>
+    function openBranchMap(selectElement) {
+        const mapUrl = selectElement.value;
+        if (mapUrl) {
+            window.open(mapUrl, "_blank", "noopener,noreferrer");
+            selectElement.selectedIndex = 0;
+        }
+    }
+</script>
+</body>
+</html>
