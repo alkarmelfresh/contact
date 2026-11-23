@@ -221,22 +221,17 @@
             transform: rotate(180deg);
         }
 
-        .branch-list {
-            display: flex;
-            flex-direction: column;
-            border-top: 1px solid #e2e8f0;
-            background-color: #ffffff;
-        }
-
         .branch-list a {
             padding: 13px 18px;
             text-decoration: none;
             color: var(--primary-color);
             font-size: 14px;
             font-weight: 700;
-            text-align: right;
             border-bottom: 1px solid #e2e8f0;
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
             transition: background-color 0.2s ease, padding-right 0.2s ease;
         }
 
@@ -247,6 +242,12 @@
 
         .branch-list a:last-child {
             border-bottom: none;
+        }
+
+        .branch-link-arrow {
+            font-size: 13px;
+            color: #94a3b8;
+            flex-shrink: 0;
         }
     </style>
 </head>
@@ -275,7 +276,7 @@
         </a>
 
         <!-- زر واتساب (ضع الرقم بصيغة دولية بدون أصفار أو +) -->
-        <a href="https://wa.me/962799777690" target="_blank" class="btn btn-whatsapp">
+        <a href="https://wa.me/962791113170" target="_blank" class="btn btn-whatsapp">
             <div class="btn-content">
                 <i class="fa-brands fa-whatsapp main-icon"></i>
                 <span>تواصل معنا على واتساب</span>
@@ -306,7 +307,6 @@
 
         <!-- قسم الأفرع بنظام القائمة المنسدلة (6 أفرع) -->
 <div class="section-title">مواقع أفرعنا (اختر الفرع)</div>
-
 <div class="branch-selector">
     <details class="branch-dropdown">
         <summary class="branch-summary">
@@ -317,19 +317,33 @@
             <i class="fa-solid fa-chevron-down select-arrow"></i>
         </summary>
         <div class="branch-list">
-            <a href="https://maps.app.goo.gl/qFfrp5AytJAPuDGK9?g_st=ic" target="_blank" rel="noopener noreferrer">فرع دابوق - إشارة المواصفات والمقاييس</a>
-            <a href="https://maps.app.goo.gl/MdbHJj7Wyr4UMDGm9?g_st=ic" target="_blank" rel="noopener noreferrer">فرع خلدا - بجانب بن العميد</a>
-            <a href="https://maps.app.goo.gl/mzGXtMaTDftzqE2L8?g_st=ic" target="_blank" rel="noopener noreferrer">فرع شارع الحرية - مقابل دائرة الأراضي</a>
-            <a href="https://maps.app.goo.gl/nuPjKsKYQEhAUVdR8?g_st=ic" target="_blank" rel="noopener noreferrer">فرع الصويفية - بجانب صويفية فيليج</a>
-            <a href="https://maps.app.goo.gl/umXELHtPKqtH4dx16?g_st=ic" target="_blank" rel="noopener noreferrer">فرع شارع القدس - مقابل أرامكس</a>
-            <a href="https://maps.app.goo.gl/C7kcKy5LjDDaa5gk6?g_st=ic" target="_blank" rel="noopener noreferrer">فرع ضاحية الياسمين - مقابل حديقة الشباب</a>
+            <a href="https://maps.app.goo.gl/qFfrp5AytJAPuDGK9?g_st=ic" target="_blank" rel="noopener noreferrer">
+                <span>فرع دابوق - إشارة المواصفات والمقاييس</span>
+                <i class="fa-solid fa-chevron-left branch-link-arrow"></i>
+            </a>
+            <a href="https://maps.app.goo.gl/MdbHJj7Wyr4UMDGm9?g_st=ic" target="_blank" rel="noopener noreferrer">
+                <span>فرع خلدا - بجانب بن العميد</span>
+                <i class="fa-solid fa-chevron-left branch-link-arrow"></i>
+            </a>
+            <a href="https://maps.app.goo.gl/mzGXtMaTDftzqE2L8?g_st=ic" target="_blank" rel="noopener noreferrer">
+                <span>فرع شارع الحرية - مقابل دائرة الأراضي</span>
+                <i class="fa-solid fa-chevron-left branch-link-arrow"></i>
+            </a>
+            <a href="https://maps.app.goo.gl/nuPjKsKYQEhAUVdR8?g_st=ic" target="_blank" rel="noopener noreferrer">
+                <span>فرع الصويفية - بجانب صويفية فيليج</span>
+                <i class="fa-solid fa-chevron-left branch-link-arrow"></i>
+            </a>
+            <a href="https://maps.app.goo.gl/umXELHtPKqtH4dx16?g_st=ic" target="_blank" rel="noopener noreferrer">
+                <span>فرع شارع القدس - مقابل أرامكس</span>
+                <i class="fa-solid fa-chevron-left branch-link-arrow"></i>
+            </a>
+            <a href="https://maps.app.goo.gl/C7kcKy5LjDDaa5gk6?g_st=ic" target="_blank" rel="noopener noreferrer">
+                <span>فرع ضاحية الياسمين - مقابل حديقة الشباب</span>
+                <i class="fa-solid fa-chevron-left branch-link-arrow"></i>
+            </a>
         </div>
     </details>
 </div>
-        <footer>
-            جميع الحقوق محفوظة © 2026
-        </footer>
-    </div>
 <script>
   function openBranchMap(selectElement) {
     const mapUrl = selectElement.value;
